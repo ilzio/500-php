@@ -1,0 +1,26 @@
+Deletar repositorio
+
+    remover pasta .git do repositorio local (/var/www/html/pasta)
+    remover repositorio do site do github
+
+ Checar status github 
+ 
+    git status 
+ 
+ Modificar nome usuario e email globais (sem --global e'so do projeto) 
+ 
+     git config --global user.name nome
+     git config --global user.email email
+   
+ Adicionar arquivos da pasta 
+ 
+    git init (cria pasta .git)
+    git add --all 
+    git commit -m qualquer commentario para a atualizacao
+ 
+ Criar novo repositorio no GH, pegar o endereco https 
+ 
+    git remote add origin url dado pelo GH (sem aspas)
+    git push origin master 
+  
+  

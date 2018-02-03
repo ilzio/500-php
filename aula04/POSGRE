@@ -1,0 +1,80 @@
+
+accessar do terminal de comando
+
+psql -h localhost -U developer aula04
+
+  }                      COMANDOS BASICOS {
+
+                        \q - sair
+
+                        \c nomebanco nomeuser – Conectar a outro banco
+
+                        \l - lista todos os bancos do servidor, juntamente com seus donos e codificações
+
+                        \d – lista tabelas, índices, sequências ou views
+
+                        \d nometabela – mostra estrutura da tabela
+
+                        \dt – lista tabelas
+
+                        \di – lista indices
+
+                        \dp – lista privilégios
+
+                        \du – lista usuários
+
+                        \dg – lista grupos
+
+
+                        \e - abre o editor vi com a última consulta
+
+                        \o - inicia/termina a criação de arquivo. Ex.: \o arquivo.sql
+
+                        \? - ajuda geral dos comandos do psql
+
+                        \h * - exibe ajuda de todos os comandos
+
+                        \h comandosql – ajuda específica sobre o comando SQL, ex.: \h alter table
+
+                        \H – ativa/desativa saída em HTML
+
+                        \encoding – exibe codificação atual
+
+
+                        Boa sugestão:
+
+                        \h CREATE DATABASE
+
+                        \h CREATE ROLE
+}
+
+
+                   CRIAR TABELA
+
+CREATE TABLE usuario(
+id SERIAL PRIMARY KEY
+);
+
+CREATE table posts(
+id SERIAL PRIMARY KEY,
+titulo VARCHAR(255) NOT NULL,
+conteudo TEXT,
+id_usuario int REFERENCES usuarios(id) -> foreign key definida no momento da creacao!
+);
+
+          ADICIONAR VALORES DENTRO DAS TABELAS
+
+
+insert into usuarios (usuario,senha) values ('joao','linux');
+
+insert into posts(titulo, conteudo, id_usuario)
+values
+('ese post','OLAddss222sadsadsaa', 3);
+
+            ALTERAR TABELAS
+
+alter table usuarios add constraint usuario_unique UNIQUE (usuario);
+
+DELETE FROM usuarios WHERE id =
+
+UPDATE usuarios SET usuario = 'texto' WHERE id = {$id}";
