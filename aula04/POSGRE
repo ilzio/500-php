@@ -1,7 +1,22 @@
 
 accessar do terminal de comando
 
-psql -h localhost -U developer aula04
+accessar como usuario postgres
+
+      1) su
+
+      2) su postgres
+
+      3) psql
+
+      4) ALTER DATABASE nomebanco OWNER to nomeusuario;
+
+conexao a banco
+
+
+  psql -h host -U nomeusuario nomebanco;
+
+  psql -h localhost -U developer dexterescola
 
   }                      COMANDOS BASICOS {
 
@@ -55,12 +70,31 @@ CREATE TABLE usuario(
 id SERIAL PRIMARY KEY
 );
 
+dexterescola=> CREATE TABLE tb_alunos(
+id SERIAL PRIMARY KEY,
+nome VARCHAR(150) NOT NULL,
+email VARCHAR(100) NOT NULL,
+senha VARCHAR(255) NOT NULL,
+cpf VARCHAR(11) NOT NULL,
+rg VARCHAR(20),
+dt_nasc DATE
+);
+
+
 CREATE table posts(
 id SERIAL PRIMARY KEY,
 titulo VARCHAR(255) NOT NULL,
 conteudo TEXT,
 id_usuario int REFERENCES usuarios(id) -> foreign key definida no momento da creacao!
 );
+
+create table tb_turmas(
+id SERIAL PRIMARY KEY,
+curso_id INT REFERENCES tb_cursos(id),
+periodo_id INT references tb_periodos(id),
+instrutor VARCHAR(200)
+);
+
 
           ADICIONAR VALORES DENTRO DAS TABELAS
 
@@ -75,6 +109,8 @@ values
 
 alter table usuarios add constraint usuario_unique UNIQUE (usuario);
 
+ALTER TABLE tb_alunos ADD CONSTRAINT cpf_unique UNIQUE (cpf);
+
 DELETE FROM usuarios WHERE id =
 
-UPDATE usuarios SET usuario = 'texto' WHERE id = {$id}";
+UPDATE usuarios SET usuario = 'texto' WHERE id = "{$id}";
